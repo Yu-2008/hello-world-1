@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://https://github.com/Yu-2008/hello-world-1.git'
-            }
+                git branch: 'master', url: 'https://github.com/Yu-2008/hello-world-1.git'
         }
         stage('Build') {
             steps { bat 'gradlew clean build'}
@@ -21,6 +20,7 @@ post {
         always {
             echo 'Cleaning up workspace'
             deleteDir() // Clean up the workspace after the build
+            echo 'Workspace diractory deleted!!!!!!!!! >^< ^^ =^= 3.3 Orz'
         }
         success {
             echo 'Build succeeded!!!'
