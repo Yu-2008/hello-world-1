@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        gradle 'Gradle-9'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -10,13 +14,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'gradlew clean build'
+                bat 'gradle clean build'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'gradlew test'
+                bat 'gradle test'
             }
         }
 
